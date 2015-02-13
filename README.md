@@ -48,4 +48,5 @@ Will generate:
  - Datatype conversion using json.withTransformer(...)
  - Serialization of collections (including primitives)
  - Serialization of maps (as key-value pairs)
+ - Case conversion using Guava's CaseFormat as JSONBuilder constructor parameters
  - See the tests provided for samples
