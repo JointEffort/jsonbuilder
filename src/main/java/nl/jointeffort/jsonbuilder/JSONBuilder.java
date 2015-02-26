@@ -204,6 +204,9 @@ public class JSONBuilder {
 				if (sourceCaseFormat != null) {
 					key = sourceCaseFormat.to(targetCaseFormat, path);
 				}
+				if (sourceCaseFormat != null) {
+					key = sourceCaseFormat.to(targetCaseFormat, path);
+				}
 				currentOutput.append('"').append(key).append("\":[");
 				Collection col = (Collection) memberValue;
 				Iterator iterator = col.iterator();
@@ -345,8 +348,9 @@ public class JSONBuilder {
 		return this;
 	}
 
-	public void withFilter(String path, Filter filter) {
+	public JSONBuilder withFilter(String path, Filter filter) {
 		filters.put(path, filter);
+		return this;
 	}
 
 	/**

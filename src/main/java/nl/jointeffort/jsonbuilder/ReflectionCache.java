@@ -34,7 +34,7 @@ public class ReflectionCache {
 		}
 
 		for (Method method : aClass.getDeclaredMethods()) {
-			if (isJavaBeanGetter(method)) {
+			if (isJavaBeanGetter(method) && !method.isSynthetic()) {
 				String propertyName = getPropertyName(method);
 				method.setAccessible(true);
 				members.put(propertyName, method);
@@ -42,7 +42,7 @@ public class ReflectionCache {
 		}
 
 		for (Field field : aClass.getDeclaredFields()) {
-			if (!isStatic(field)) {
+			if (!isStatic(field) && !field.isSynthetic()) {
 				field.setAccessible(true);
 				members.put(field.getName(), field);
 			}
